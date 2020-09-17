@@ -6,7 +6,7 @@
 | ---------- | ------- | ----------- |
 | nickname   | string  | null: false |
 | age        | integer | null: false |
-| metabolism | string  |             |
+| metabolism | integer |             |
 | money      | integer |             |
 
 ### Association
