@@ -1,5 +1,10 @@
 class FoodsController < ApplicationController
   # @user = User.find(params[:user_id])
+
+  def index
+    @food = Food.all
+  end
+
   def new
     @food = Food.new
   end
