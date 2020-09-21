@@ -23,17 +23,16 @@
       </span>
     </div>
 
-    <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
-
-    <%= link_to '料理の編集', edit_food_path(@food.id), method: :get, class: "item-red-btn" %>
-    <p class='or-text'>or</p>
-    <%= link_to '削除', food_path(@food.id), method: :delete, class:'item-destroy' %>
-
-    <%# 商品が売れていない場合はこちらを表示しましょう %>
-    <%# //商品が売れていない場合はこちらを表示しましょう %>
-
-
-    <%# //ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
+  
+    <% if user_signed_in? && @food.user == current_user %>
+      <%= link_to'体に取り込む物の編集', edit_food_path(@food.id), method: :get, class: "item-red-btn" %>
+      <p class='or-text'>or</p>
+      <%= link_to '削除', food_path(@food.id) , method: :delete, class:'item-destroy' %>
+    <% elsif user_signed_in? %>
+      <%= link_to '体に取り込む', "#" ,class:"item-red-btn"%>
+    <% else %>
+      <%= link_to '体に取り込む', user_session_path ,class:"item-red-btn"%>
+    <% end %>
 
     <div class="item-explain-box">
       <span><%= @food.product %></span>
