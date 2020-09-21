@@ -80,7 +80,7 @@
 
 .detail-table {
   margin-bottom: 30px;
-  width: 100%;
+  width: 250px;
 }
 
 .detail-item {
@@ -94,6 +94,13 @@
 .detail-value {
   width: 80%;
   padding: 20px;
+  border: 1px solid #dedede;
+  font-size: 14px;
+}
+
+.explanation-value {
+  width: 80%;
+  padding: 50px;
   border: 1px solid #dedede;
   font-size: 14px;
 }

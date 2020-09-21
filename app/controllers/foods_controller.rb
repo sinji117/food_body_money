@@ -1,6 +1,4 @@
 class FoodsController < ApplicationController
-  # @user = User.find(params[:user_id])
-
   def index
     @food = Food.all
   end
@@ -33,6 +31,15 @@ class FoodsController < ApplicationController
 
   def show
     @food = Food.find(params[:id])
+  end
+
+  def destroy
+    @food = Food.find(params[:id])
+    if @food.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
   end
 
   private

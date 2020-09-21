@@ -121,7 +121,7 @@
   <%# /FURIMAの特徴 %>
 
   <div class='item-contents'>
-    <h2 class='title'>ピックアップカテゴリー</h2>
+    <h2 class='title'>みんなが食べているもの！</h2>
     <%= link_to '新規投稿商品', "#", class: "subtitle" %>
     <ul class='item-lists'>
 
@@ -150,15 +150,17 @@
   </div>
 </div>
 
+      
+
 <% if user_signed_in? %>
   <div class='purchase-btn'>
-    <span><%= link_to "出品する", new_food_path, class: 'purchase-btn-text' %></span>
-    <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+    <span><%= link_to "体に取り込む", new_food_path, class: 'purchase-btn-text' %></span>
+    <%= image_tag 'https://1.bp.blogspot.com/-5Ivf_XbpMGY/VYJrrYShorI/AAAAAAAAuiI/OjRHAljzJ6A/s800/oishii1_boy.png' , size: '185x70' ,class: "purchase-btn-icon" %>
   </div>
 <% else %>
   <div class='purchase-btn'>
-    <span><%= link_to "出品する", user_session_path, class: 'purchase-btn-text' %></span>
-    <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+    <span><%= link_to "体に取り込む", user_session_path, class: 'purchase-btn-text' %></span>
+    <%= image_tag 'https://1.bp.blogspot.com/-5Ivf_XbpMGY/VYJrrYShorI/AAAAAAAAuiI/OjRHAljzJ6A/s800/oishii1_boy.png' , size: '185x70' ,class: "purchase-btn-icon" %>
   </div>
 <% end %>
 <%= render "shared/footer" %>

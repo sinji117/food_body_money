@@ -41,24 +41,24 @@
     <table class="detail-table">
       <tbody>
         <tr>
-          <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= @food.user.nickname %></td>
+          <th class="detail-item">投稿者</th>
+          <td class="detail-value"><%= @food.user.nickname %>さん</td>
         </tr>
         <tr>
-          <th class="detail-item">カテゴリー</th>
-          <td class="detail-value"><%= @food.calorie %></td>
+          <th class="detail-item">カロリー</th>
+          <td class="detail-value"><%= @food.calorie %>kcal</td>
         </tr>
         <tr>
-          <th class="detail-item">商品の状態</th>
-          <td class="detail-value"><%= @food.price %></td>
+          <th class="detail-item">食材費</th>
+          <td class="detail-value"><%= @food.price %>円</td>
         </tr>
         <tr>
-          <th class="detail-item">配送料の負担</th>
+          <th class="detail-item">材料</th>
           <td class="detail-value"><%= @food.ingredient %></td>
         </tr>
         <tr>
-          <th class="detail-item">発送元の地域</th>
-          <td class="detail-value"><%= @food.explanation %></td>
+          <th class="detail-item">作りかた</th>
+          <td class="explanation-value"><%= @food.explanation %></td>
         </tr>
       </tbody>
     </table>

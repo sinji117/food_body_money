@@ -1,0 +1,42 @@
+<div class='item-contents'>
+
+    <h2 class='title'><%= current_user.nickname %>さん</h2>
+    
+    <%= link_to '新規投稿商品', "#", class: "subtitle" %>
+    <h2 class='title'>本日食べたもの一覧</h2>
+    <ul class='item-lists'>
+
+      <li class='list'>
+       <% sum = 0 %>
+       <% calorie = 0 %>
+      <% @food.each do |food| %>
+     
+        
+          <%= link_to food_path(food.id) do %>
+            <div class='item-img-content'>
+              <%= image_tag food.image, class: "item-img" %>
+                <div class='item-info'>
+                  <h3 class='item-name'>
+                    <%= food.product %>
+                  </h3>
+                </div>
+                <div class='item-price'>
+                  <span><%= food.price %>円<br>(税込み)</span>
+                  <div class='star-btn'>
+                    <%= image_tag "star.png", class:"star-icon" %>
+                  <span class='star-count'>0</span>
+                </div>
+              </div>
+            </div>
+            <% sum += food.price %>
+             <% calorie += food.calorie  %>
+           
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+     <h2 class='title'>本日の総摂取カロリー</h2>
+      <%= calorie %>kcal
+    <h2 class='title'>本日の食材費</h2>
+     <%= sum %>円
+</div>
