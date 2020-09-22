@@ -8,11 +8,6 @@
     </h2>
     <div class='item-img-content'>
       <%= image_tag @food.image ,class:"item-box-img" %>
-      <%# 商品が売れている場合は、sold outを表示しましょう %>
-      <div class='sold-out'>
-        <span>Sold Out!!</span>
-      </div>
-      <%# //商品が売れている場合は、sold outを表示しましょう %>
     </div>
     <div class="item-price-box">
       <span class="item-price">
@@ -25,13 +20,13 @@
 
   
     <% if user_signed_in? && @food.user == current_user %>
-      <%= link_to'体に取り込む物の編集', edit_food_path(@food.id), method: :get, class: "item-red-btn" %>
+      <%= link_to"#{@food.product}の編集", edit_food_path(@food.id), method: :get, class: "item-red-btn" %>
       <p class='or-text'>or</p>
       <%= link_to '削除', food_path(@food.id) , method: :delete, class:'item-destroy' %>
     <% elsif user_signed_in? %>
-      <%= link_to '体に取り込む', "#" ,class:"item-red-btn"%>
+      <%= link_to "#{@food.product}を体に取り込む", new_food_path, class:"item-red-btn"%>
     <% else %>
-      <%= link_to '体に取り込む', user_session_path ,class:"item-red-btn"%>
+      <%= link_to "#{@food.product}を体に取り込む", user_session_path ,class:"item-red-btn"%>
     <% end %>
 
     <div class="item-explain-box">

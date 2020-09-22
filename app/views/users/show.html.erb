@@ -10,9 +10,7 @@
        <% sum = 0 %>
        <% calorie = 0 %>
       <% @food.each do |food| %>
-     
-        
-          <%= link_to food_path(food.id) do %>
+        <%= link_to food_path(food.id) do %>
             <div class='item-img-content'>
               <%= image_tag food.image, class: "item-img" %>
                 <div class='item-info'>
@@ -39,4 +37,8 @@
       <%= calorie %>kcal
     <h2 class='title'>本日の食材費</h2>
      <%= sum %>円
+     <h2 class='title'>本日の残りカロリー</h2>
+     <%= current_user.metabolism - calorie %>kcal
+    <h2 class='title'>今月の残り食材費</h2>
+     <%= current_user.money - sum %>円
 </div>
