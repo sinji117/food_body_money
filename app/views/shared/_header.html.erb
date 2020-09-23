@@ -2,14 +2,8 @@
 <header class='top-page-header'>
   <div class='search-bar-contents'>
     <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
-    <form class="search-form" action="#">
-      <input class='input-box' placeholder='キーワードから探す'>
-      <button class="search-button">
-        <%= image_tag "search.png", class:"search-icon" %>
-      </button>
-    </form>
     <%= form_with(url: search_foods_path, local: true, method: :get, class: "search-form") do |form| %>
-      <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+      <%= form.text_field :keyword, placeholder: "今日食べる物！", class: "search-input" %>
       <%= form.submit "検索", class: "search-btn" %>
     <% end %>
   </div>
@@ -21,7 +15,6 @@
       <% if user_signed_in? %>
         <div class='lists-right'>
           <li><%= link_to 'マイページ', users_path, method: :get, class: "category-list" %></li>
-          <li><%= link_to '昨日以降の物', user_path(current_user), method: :get, class: "category-list" %></li>
           <li><%= link_to current_user.nickname, root_path, class: "user-nickname" %></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %></li>
         </div>

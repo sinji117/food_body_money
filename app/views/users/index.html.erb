@@ -1,32 +1,21 @@
 <%= render "shared/header" %>
-<p id="notice"><%= notice %></p>
 
 <h1>1日の目標値</h1>
 
 <table>
-  <thead>
-  </thead>
-
-  <tbody>
       <tr>
         <td><%= current_user.nickname %></td>
         <td><%= current_user.metabolism %></td>
          <td><%= current_user.money %></td>
       </tr>
-  </tbody>
 </table>
-
 <br>
 
 
 <%= month_calendar events: @food do |date, food| %>
-<%= date %> あなたの基礎代謝<%= current_user.metabolism %>kcal <br>
-
-  <%# 現状八日ならみかんが出る%>
-  本日取り込んだ物
-  
-<% sum = 0 %>
-<% food.each do |f| %>
+  <%= date %> あなたの基礎代謝<%= current_user.metabolism %>kcal <br>
+  <% sum = 0 %>
+  <% food.each do |f| %>
     <div>
       <%= link_to f.product, f %>
       <%= f.calorie %>kcal
