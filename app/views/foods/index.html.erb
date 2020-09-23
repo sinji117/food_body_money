@@ -4,10 +4,10 @@
   <%# 画面上部の「人生を変えるフリマアプリ」帯部分 %>
   <div class='title-contents'>
     <h2 class='service-title'>
-      支出＜収入＝中性脂肪は必ず増える！
+      カロリーとお金
     </h2>
     <p class='service-explain'>
-      FOODCONTROLLRERはだれでもかんたんに管理が簡単
+      フードマネーはだれでもかんたんに管理が簡単
     </p>
     <p class='service-explain'>
       管理アプリです
@@ -22,40 +22,36 @@
   <%# FURIMAが選ばれる3つの理由部分 %>
   <div class='select-reason-contents'>
     <h2 class='title'>
-      このアプリを使って痩せれれない？
+      フードマネーは家計と体型を管理できるアプリ
     </h2>
     <ul class='reason-lists'>
       <li class='list'>
-        <%= image_tag "camera.png", class:"list-pict" %>
+        <%= image_tag "0221.png", class:"list-pict" %>
         <span class='reason-list-number'>1</span>
         <h3 class='reason-list-text'>
-          <span class='reason-list-blue-text'>あなたは</span>
-          食べ過ぎ
+          <span class='reason-list-blue-text'>昨日。。。いや今日何食べたっけ？</span>
         </h3>
         <p class='reason-list-description'>
-          単純に食べ過ぎ
         </p>
       </li>
       <li class='list'>
-        <%= image_tag "camera.png", class:"list-pict" %>
+        <%= image_tag "money_fueru.png", class:"list-pict" %>
         <span class='reason-list-number'>2</span>
         <h3 class='reason-list-text'>
-          <span class='reason-list-blue-text'>シンプルに</span>
-          食べ過ぎ
+          <span class='reason-list-blue-text'>今日。。。いや毎日の食費ってどれくらい？</span>
         </h3>
         <p class='reason-list-description'>
-          食べた物覚えていますか？
         </p>
       </li>
       <li class='list'>
         <%= image_tag "furima-intro03.png", class:"list-pict" %>
         <span class='reason-list-number'>3</span>
         <h3 class='reason-list-text'>
-          このアプリを見ればカロリー丸わかり！
+          このアプリを見れば2つが丸わかり
           <span class='reason-list-blue-text'>俺こんな食ってたんだ。。。</span>
         </h3>
         <p class='reason-list-description'>
-          今から痩せることができるアプリ！！！！
+          お金とkcalの一括管理！！！
         </p>
       </li>
     </ul>
@@ -65,16 +61,16 @@
   <%# 画面中央の「会員数日本一位」帯部分 %>
   <div class='ad-contents'>
     <h2 class='ad-title'>
-      会員数これから
+      kcal？？？わからないよ。。。
     </h2>
     <p class='ad-explain'>
-      FURIMAは、フリマアプリで最も人気。
+      大丈夫！
     </p>
     <p class='ad-explain'>
-      出品・購入回数も業界最多です！
+      そうあなたは1人じゃない！
     </p>
     <p class='ad-explain'>
-      ほしかったあの商品に出会えるかもしれません。
+      ただの家計管理アプリじゃありません！
     </p>
     <div class='store-btn'>
       <%= link_to image_tag("https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2011-09-21&kind=iossoftware&bubble=ios_apps", class:"apple-btn"), "#" %>
@@ -86,34 +82,34 @@
   <%# FURIMAの特徴 %>
   <div class='feature-contents'>
     <h2 class='title'>
-      FURIMAの特徴
+      kcalマネーの特徴
     </h2>
     <ul class='feature-lists'>
       <li class='list'>
         <%= image_tag "furima-intro04.png", class:"list-pict" %>
         <h3 class='feature-list-text'>
-          簡単に売り買いできる
+          皆で食べものの値段、kcalを共有しあう！
         </h3>
         <p class='feature-list-description'>
-          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+          スマホひとつで、いつでもどこでも簡単に食べた物のカロリーがわかる！
         </p>
       </li>
       <li class='list'>
         <%= image_tag "furima-intro05.png", class:"list-pict" %>
         <h3 class='feature-list-text'>
-          売上金は即日振込みに対応
+          食べ過ぎ防止に繋がります。お財布は逆に太ってしまう。。。。
         </h3>
         <p class='feature-list-description'>
-          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします。
+          収入＜支出は必ず太る運命
         </p>
       </li>
       <li class='list'>
         <%= image_tag "furima-intro06.png", class:"list-pict" %>
         <h3 class='feature-list-text'>
-          様々な支払いに対応
+          みんなで情報をシェア！！！
         </h3>
         <p class='feature-list-description'>
-          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+          孤独なダイエットは終わり！みんなで協力しあおう
         </p>
       </li>
     </ul>
@@ -121,7 +117,7 @@
   <%# /FURIMAの特徴 %>
 
   <div class='item-contents'>
-    <h2 class='title'>みんなが食べているもの！</h2>
+    <h2 class='title'>さあ記録を録りましょう</h2>
     <%= link_to '新規投稿商品', "#", class: "subtitle" %>
     <ul class='item-lists'>
 
@@ -147,6 +143,7 @@
         <% end %>
       </li>
     </ul>
+    <h2 class='title'>あなたも食べたものの情報を共有してあげよう</h2>
   </div>
 </div>
 
