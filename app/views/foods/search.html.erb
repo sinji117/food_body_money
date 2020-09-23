@@ -1,0 +1,33 @@
+<%= form_with(url: search_foods_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+  <%= form.submit "検索", class: "search-btn" %>
+<% end %>
+<div class='item-contents'>
+    <h2 class='title'>みんなが食べているもの！</h2>
+    <%= link_to '新規投稿商品', "#", class: "subtitle" %>
+    <ul class='item-lists'>
+
+      <li class='list'>
+        <% @food.each do |food| %>
+          <%= link_to food_path(food.id) do %>
+            <div class='item-img-content'>
+              <%= image_tag food.image, class: "item-img" %>
+                <div class='item-info'>
+                  <h3 class='item-name'>
+                    <%= food.product %>
+                  </h3>
+                </div>
+                <div class='item-price'>
+                  <span><%= food.price %>円<br>(税込み)</span>
+                  <div class='star-btn'>
+                    <%= image_tag "star.png", class:"star-icon" %>
+                  <span class='star-count'>0</span>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
