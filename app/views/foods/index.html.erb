@@ -7,9 +7,10 @@
       カロリーとお金
     </h2>
     <p class='service-explain'>
-      フードマネーはだれでもかんたんに管理が簡単
+      カロリーとお金には密接な関係があります
     </p>
     <p class='service-explain'>
+      フードマネーは簡単にkcalと食費管理ができる
       管理アプリです
     </p>
     <div class='store-btn'>
@@ -48,7 +49,7 @@
         <span class='reason-list-number'>3</span>
         <h3 class='reason-list-text'>
           このアプリを見れば2つが丸わかり
-          <span class='reason-list-blue-text'>俺こんな食ってたんだ。。。</span>
+          <span class='reason-list-blue-text'>俺こんな食ってたんだ。。。俺こんな使ってんだ。。。</span>
         </h3>
         <p class='reason-list-description'>
           お金とkcalの一括管理！！！
@@ -70,7 +71,7 @@
       そうあなたは1人じゃない！
     </p>
     <p class='ad-explain'>
-      ただの家計管理アプリじゃありません！
+      kcalマネーはただの家計管理アプリじゃありません！
     </p>
     <div class='store-btn'>
       <%= link_to image_tag("https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2011-09-21&kind=iossoftware&bubble=ios_apps", class:"apple-btn"), "#" %>
@@ -86,7 +87,7 @@
     </h2>
     <ul class='feature-lists'>
       <li class='list'>
-        <%= image_tag "furima-intro04.png", class:"list-pict" %>
+        <%= image_tag "9e2e4adcffa79c4df161f62e18b1f108_t.jpeg", class:"list-pict" %>
         <h3 class='feature-list-text'>
           皆で食べものの値段、kcalを共有しあう！
         </h3>
@@ -95,16 +96,16 @@
         </p>
       </li>
       <li class='list'>
-        <%= image_tag "furima-intro05.png", class:"list-pict" %>
+        <%= image_tag "images.jpeg", class:"list-pict" %>
         <h3 class='feature-list-text'>
-          食べ過ぎ防止に繋がります。お財布は逆に太ってしまう。。。。
+          食べ過ぎ防止で体はスリム！
         </h3>
         <p class='feature-list-description'>
-          収入＜支出は必ず太る運命
+          ですがお財布は逆に太ってしまう。。。。
         </p>
       </li>
       <li class='list'>
-        <%= image_tag "furima-intro06.png", class:"list-pict" %>
+        <%= image_tag "ダウンロード (2).jpeg", class:"list-pict" %>
         <h3 class='feature-list-text'>
           みんなで情報をシェア！！！
         </h3>
@@ -117,8 +118,7 @@
   <%# /FURIMAの特徴 %>
 
   <div class='item-contents'>
-    <h2 class='title'>さあ記録を録りましょう</h2>
-    <%= link_to '新規投稿商品', "#", class: "subtitle" %>
+    <h2 class='title'>ここには皆さんの情報が記載されています</h2>
     <ul class='item-lists'>
 
       <li class='list'>
@@ -151,12 +151,12 @@
 
 <% if user_signed_in? %>
   <div class='purchase-btn'>
-    <span><%= link_to "体に取り込む", new_food_path, class: 'purchase-btn-text' %></span>
+    <span><%= link_to "情報の共有", new_food_path, class: 'purchase-btn-text' %></span>
     <%= image_tag 'https://1.bp.blogspot.com/-5Ivf_XbpMGY/VYJrrYShorI/AAAAAAAAuiI/OjRHAljzJ6A/s800/oishii1_boy.png' , size: '185x70' ,class: "purchase-btn-icon" %>
   </div>
 <% else %>
   <div class='purchase-btn'>
-    <span><%= link_to "体に取り込む", user_session_path, class: 'purchase-btn-text' %></span>
+    <span><%= link_to "情報の共有", user_session_path, class: 'purchase-btn-text' %></span>
     <%= image_tag 'https://1.bp.blogspot.com/-5Ivf_XbpMGY/VYJrrYShorI/AAAAAAAAuiI/OjRHAljzJ6A/s800/oishii1_boy.png' , size: '185x70' ,class: "purchase-btn-icon" %>
   </div>
 <% end %>

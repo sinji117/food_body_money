@@ -4,26 +4,31 @@
 
 <table>
       <tr>
-        <td><%= current_user.nickname %></td>
-        <td><%= current_user.metabolism %></td>
-         <td><%= current_user.money %></td>
+        あなたの基礎代謝<td><%= current_user.metabolism %></td>
+        1日に使える<td><%= current_user.money %></td>
       </tr>
 </table>
 <br>
 
 
 <%= month_calendar events: @food do |date, food| %>
-  <%= date %> あなたの基礎代謝<%= current_user.metabolism %>kcal <br>
+  <%= date %> <br>
+  あなたの基礎代謝<%= current_user.metabolism %>kcal <br>
   <% sum = 0 %>
+  <% price = 0 %>
   <% food.each do |f| %>
     <div>
       <%= link_to f.product, f %>
       <%= f.calorie %>kcal
-      <%# 現状商品名を押すと詳細ページに行く%>
       <% sum += f.calorie  %>
     </div>
+    <div>
+      <%= f.price %>円
+      <% price += f.price  %>
+    </div>
   <% end %>
-  現在<%= sum %>kcal取り込み中<br>
-  <%= current_user.metabolism - sum %>kcal
+  <%= sum %>kcal摂取<br>
+  残り<%= current_user.metabolism - sum %>kcal
+  <%= price %>円使ってます
 
 <% end %>
