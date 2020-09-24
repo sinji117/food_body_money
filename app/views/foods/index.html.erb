@@ -118,7 +118,7 @@
   <%# /FURIMAの特徴 %>
 
   <div class='item-contents'>
-    <h2 class='title'>ここには皆さんの情報が記載されています</h2>
+    <h2 class='title'>今日みんな食べている一覧</h2>
     <ul class='item-lists'>
 
       <li class='list'>
@@ -144,6 +144,11 @@
       </li>
     </ul>
     <h2 class='title'>あなたも食べたものの情報を共有してあげよう</h2>
+    <h2 class='title'>あなたの情報が誰かの役に必ずたつ</h2>
+    <%= form_with(url: search_foods_path, local: true, method: :get, class: "search-form") do |form| %>
+      <%= form.text_field :keyword, placeholder: "今日食べる物！", class: "search-input" %>
+      <%= form.submit "検索", class: "search-btn" %>
+    <% end %>
   </div>
 </div>
 

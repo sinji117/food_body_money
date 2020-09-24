@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
   def index
-    @food = Food.all
+    @food = Food.all.limit(5)
   end
 
   def new
