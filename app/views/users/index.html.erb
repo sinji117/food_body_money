@@ -1,34 +1,21 @@
 <%= render "shared/header" %>
-
-<h1>1日の目標値</h1>
-
-<table>
-      <tr>
-        あなたの基礎代謝<td><%= current_user.metabolism %></td>
-        1日に使える<td><%= current_user.money %></td>
-      </tr>
-</table>
-<br>
-
-
-<%= month_calendar events: @food do |date, food| %>
+基礎代謝 <%= current_user.metabolism %>kcal<br>
+月の基礎代謝 <%= current_user.metabolism * 30 %>kcal<br>
+月の予定額 <%= current_user.money %>円<br>
+<% metabolism = current_user.metabolism * 30 %>
+<%= week_calendar events: @food do |date, food| %>
   <%= date %> <br>
-  あなたの基礎代謝<%= current_user.metabolism %>kcal <br>
   <% sum = 0 %>
   <% price = 0 %>
   <% food.each do |f| %>
-    <div>
-      <%= link_to f.product, f %>
-      <%= f.calorie %>kcal
-      <% sum += f.calorie  %>
-    </div>
-    <div>
-      <%= f.price %>円
-      <% price += f.price  %>
+  <div>
+    ・<%= link_to f.product, f %> <br>
+    <% sum += f.calorie  %>
+    <% price += f.price  %>
     </div>
   <% end %>
-  <%= sum %>kcal摂取<br>
-  残り<%= current_user.metabolism - sum %>kcal
-  <%= price %>円使ってます
-
+  ・<%= sum %>kcal摂取<br>
+  ・<%= price %>円使いました<br>
+  ・今月残り<%= current_user.money -= price %>円<br>
+  ・今月残り<%= metabolism -= sum %>kcal<br>
 <% end %>

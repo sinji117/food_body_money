@@ -10,8 +10,8 @@
       カロリーとお金には密接な関係があります
     </p>
     <p class='service-explain'>
-      フードマネーは簡単にkcalと食費管理ができる
-      管理アプリです
+      フードマネーは簡単にkcalと食費の関係が理解出来るようになります。<br>
+      1ヶ月の記録であなたは軽い体と太った財布を手に入れるでしょう
     </p>
     <div class='store-btn'>
       <%= link_to image_tag("https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2011-09-21&kind=iossoftware&bubble=ios_apps", class:"apple-btn"), "#" %>
@@ -52,7 +52,7 @@
           <span class='reason-list-blue-text'>俺こんな食ってたんだ。。。俺こんな使ってんだ。。。</span>
         </h3>
         <p class='reason-list-description'>
-          お金とkcalの一括管理！！！
+          過去の食費とkcalの一括管理！！！
         </p>
       </li>
     </ul>
@@ -72,6 +72,7 @@
     </p>
     <p class='ad-explain'>
       kcalマネーはただの家計管理アプリじゃありません！
+      使い方をご紹介
     </p>
     <div class='store-btn'>
       <%= link_to image_tag("https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2011-09-21&kind=iossoftware&bubble=ios_apps", class:"apple-btn"), "#" %>
@@ -83,38 +84,72 @@
   <%# FURIMAの特徴 %>
   <div class='feature-contents'>
     <h2 class='title'>
-      kcalマネーの特徴
+      kcalマネーの使い方
     </h2>
     <ul class='feature-lists'>
       <li class='list'>
         <%= image_tag "9e2e4adcffa79c4df161f62e18b1f108_t.jpeg", class:"list-pict" %>
         <h3 class='feature-list-text'>
-          皆で食べものの値段、kcalを共有しあう！
+          今から食べる物の写真を撮ろう！パシャ
         </h3>
         <p class='feature-list-description'>
-          スマホひとつで、いつでもどこでも簡単に食べた物のカロリーがわかる！
+          食べ物の記録をするために！
         </p>
       </li>
       <li class='list'>
         <%= image_tag "images.jpeg", class:"list-pict" %>
         <h3 class='feature-list-text'>
-          食べ過ぎ防止で体はスリム！
+         検索ボタンからkcalを簡単に検索！
         </h3>
         <p class='feature-list-description'>
-          ですがお財布は逆に太ってしまう。。。。
-        </p>
+          kcalはみんなが共有しているからすぐ分かる！
+         </p>
       </li>
       <li class='list'>
-        <%= image_tag "ダウンロード (2).jpeg", class:"list-pict" %>
+        <%= image_tag "https://1.bp.blogspot.com/-5Ivf_XbpMGY/VYJrrYShorI/AAAAAAAAuiI/OjRHAljzJ6A/s800/oishii1_boy.png", class:"list-pict" %>
         <h3 class='feature-list-text'>
-          みんなで情報をシェア！！！
+          右下の『食べて記録』をクリック！
         </h3>
         <p class='feature-list-description'>
-          孤独なダイエットは終わり！みんなで協力しあおう
+          実際に、かかった費用と調べたカロリーを撮った写真と共に入力！
         </p>
       </li>
     </ul>
   </div>
+
+  <div class='feature-contents'>
+    <ul class='feature-lists'>
+      <li class='list'>
+        <%= image_tag "9e2e4adcffa79c4df161f62e18b1f108_t.jpeg", class:"list-pict" %>
+        <h3 class='feature-list-text'>
+          マイページから記録が見れるよ！
+        </h3>
+        <p class='feature-list-description'>
+        計算できるようにしたいからあなたの情報を教えてね
+        </p>
+      </li>
+      <li class='list'>
+        <%= image_tag "ダウンロード.png", class:"list-pict" %>
+        <h3 class='feature-list-text'>
+         kcalは間違えてもみんながコメントで教えてくれるよ！
+        </h3>
+        <p class='feature-list-description'>
+          食品のkcalも知ることができる！
+         </p>
+      </li>
+      <li class='list'>
+        <%= image_tag "ダウンロード (2).jpeg", class:"list-pict" %>
+        <h3 class='feature-list-text'>
+          このアプリを使用すれば
+        </h3>
+        <p class='feature-list-description'>
+         摂取kcal,食費,さらには食材のkcalの知識がつくよ！一生物の知識ですね <br>
+         1ヶ月後が楽しみですね
+        </p>
+      </li>
+    </ul>
+  </div>
+  
   <%# /FURIMAの特徴 %>
 
   <div class='item-contents'>
@@ -156,12 +191,12 @@
 
 <% if user_signed_in? %>
   <div class='purchase-btn'>
-    <span><%= link_to "情報の共有", new_food_path, class: 'purchase-btn-text' %></span>
+    <span><%= link_to "食べて記録", new_food_path, class: 'purchase-btn-text' %></span>
     <%= image_tag 'https://1.bp.blogspot.com/-5Ivf_XbpMGY/VYJrrYShorI/AAAAAAAAuiI/OjRHAljzJ6A/s800/oishii1_boy.png' , size: '185x70' ,class: "purchase-btn-icon" %>
   </div>
 <% else %>
   <div class='purchase-btn'>
-    <span><%= link_to "情報の共有", user_session_path, class: 'purchase-btn-text' %></span>
+    <span><%= link_to "食べて記録", user_session_path, class: 'purchase-btn-text' %></span>
     <%= image_tag 'https://1.bp.blogspot.com/-5Ivf_XbpMGY/VYJrrYShorI/AAAAAAAAuiI/OjRHAljzJ6A/s800/oishii1_boy.png' , size: '185x70' ,class: "purchase-btn-icon" %>
   </div>
 <% end %>

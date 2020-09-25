@@ -67,6 +67,17 @@
       </div>
     </div>
   </div>
+  <% if user_signed_in? %>
+    <div class='purchase-btn'>
+      <span><%= link_to "この食品を追加", new_food_path, class: 'purchase-btn-text' %></span>
+      <%= image_tag 'https://1.bp.blogspot.com/-5Ivf_XbpMGY/VYJrrYShorI/AAAAAAAAuiI/OjRHAljzJ6A/s800/oishii1_boy.png' , size: '185x70' ,class: "purchase-btn-icon" %>
+    </div>
+  <% else %>
+    <div class='purchase-btn'>
+      <span><%= link_to "この食品を追加", user_session_path, class: 'purchase-btn-text' %></span>
+      <%= image_tag 'https://1.bp.blogspot.com/-5Ivf_XbpMGY/VYJrrYShorI/AAAAAAAAuiI/OjRHAljzJ6A/s800/oishii1_boy.png' , size: '185x70' ,class: "purchase-btn-icon" %>
+    </div>
+  <% end %>
   <%# /商品の概要 %>
 
   <div class="comment-box">
