@@ -8,7 +8,6 @@
   </div>
   <div class='nav'>
     <ul class='lists-left'>
-      <li><%= link_to '先月の記録', user_path(current_user.id), method: :get, class: "category-list" %></li>
     </ul>
       <% if user_signed_in? %>
         <div class='lists-right'>
@@ -23,20 +22,33 @@
       <% end %>
   </div>
     <h2 class='service-title'>
-      ⭐️ここではチャレンジ結果が見れます⭐️
+      ⭐️ここでは1週間のチャレンジ結果が見れます⭐️
     </h2>
-    <p class='service-explain'>
-      1日単位ではなく1週間単位で考えましょう
-    </p>
-    <p class='service-explain'>
-      科学的根拠で1週間が一番管理しやすい<br>
-      1週間の記録であなたは軽い体と太った財布を手に入れるでしょう
-    </p>
-    <h2 class='service-title'>
-      基礎代謝 <%= current_user.metabolism %>kcal<br>
-      週の基礎代謝 <%= current_user.metabolism * 7 %>kcal<br>
-      週の予定額 <%= current_user.money * 7 %>円<br>
-    </h2>  
+
+    <% money = current_user.money * 7 %>
+<% metabolism = current_user.metabolism * 7 %>
+<% sum = 0 %>
+  <% price = 0 %>
+<% week_calendar events: @food do |date, food| %>
+  <%= date %> <br>
+  <% food.each do |f| %>
+  <div>
+    <% sum += f.calorie  %>
+    <% price += f.price  %>
+  </div>
+    
+  <% end %>
+  
+<% end %>
+<h2 class='service-title'>
+  週の基礎代謝 <%= current_user.metabolism * 7 %>kcal週残り<%= metabolism -= sum %>kcal食べれます<br>
+  週の予定額 <%= current_user.money * 7 %>円、週残り<%= money -= price %>円使えます<br>
+</h2>  
+
+  
+
+    
+  
 <% money = current_user.money * 7 %>
 <% metabolism = current_user.metabolism * 7 %>
 <%= week_calendar events: @food do |date, food| %>

@@ -8,7 +8,7 @@
   </div>
   <div class='nav'>
     <ul class='lists-left'>
-      <li><%= link_to '一週間チャレンジ！', users_path, method: :get, class: "category-list" %></li>
+      <li><%= link_to '一週間チャレンジにいく！', users_path, method: :get, class: "category-list" %></li>
     </ul>
       <% if user_signed_in? %>
         <div class='lists-right'>
@@ -26,31 +26,17 @@
       ⭐️ここでは先月の結果が見れます⭐️
     </h2>
    
-<% money = current_user.money * 7 %>
-<% metabolism = current_user.metabolism * 7 %>
-<%= month_calendar events: @food do |date, food| %>
-  <%= date %> <br>
+<% money = current_user.money * 30 %>
+<% metabolism = current_user.metabolism * 30 %>
+
   <% sum = 0 %>
   <% price = 0 %>
 ・<%= link_to "食べたもの一覧", edit_user_path %> <br>
-  <% food.each do |f| %>
+  <% @food.each do |f| %>
   <div>
     <% sum += f.calorie  %>
     <% price += f.price  %>
     </div>
   <% end %>
-  ・日に<%= sum %>kcal摂取<br>
-  ・日に<%= price %>円使いました<br>
-  ・週残り<%= metabolism -= sum %>kcal<br>
-  ・週残り<%= money -= price %>円<br>
-  <% if current_user.metabolism - sum > 0 %>
-  ・チャレンジ結果<%= current_user.metabolism - sum %>kcal勝ったよ！<br>
-  <% else %>
-  ・チャレンジ結果<%= current_user.metabolism - sum %>kcal負けだよ<br>
-  <% end %>
-  <% if  current_user.money - price > 0 %>
-  <%= current_user.money - price %>円勝ったよ！<br>
-  <% else %>
-  <%= current_user.money - price %>円負けだよ<br>
-  <% end %>
-<% end %>
+  ・残り<%= metabolism -= sum %>kcalでした<br>
+  ・残り<%= money -= price %>円でした<br>
