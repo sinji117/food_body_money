@@ -4,14 +4,14 @@
   <%# 画面上部の「人生を変えるフリマアプリ」帯部分 %>
   <div class='title-contents'>
     <h2 class='service-title'>
-      カロリーとお金
+      week_management
     </h2>
     <p class='service-explain'>
       カロリーとお金には密接な関係があります
     </p>
     <p class='service-explain'>
       フードマネーは簡単にkcalと食費の関係が理解出来るようになります。<br>
-      1ヶ月の記録であなたは軽い体と太った財布を手に入れるでしょう
+      一週間ごとの記録であなたは軽い体と太った財布を手に入れるでしょう
     </p>
     <div class='store-btn'>
       <%= link_to image_tag("https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2011-09-21&kind=iossoftware&bubble=ios_apps", class:"apple-btn"), "#" %>
@@ -87,6 +87,15 @@
       kcalマネーの使い方
     </h2>
     <ul class='feature-lists'>
+    <li class='list'>
+        <%= image_tag "9e2e4adcffa79c4df161f62e18b1f108_t.jpeg", class:"list-pict" %>
+        <h3 class='feature-list-text'>
+          1日の目標金額と基礎代謝を教えてね
+        </h3>
+        <p class='feature-list-description'>
+          登録画面からすぐに基礎代謝が分かるから安心してね
+        </p>
+      </li>
       <li class='list'>
         <%= image_tag "9e2e4adcffa79c4df161f62e18b1f108_t.jpeg", class:"list-pict" %>
         <h3 class='feature-list-text'>
@@ -105,46 +114,36 @@
           kcalはみんなが共有しているからすぐ分かる！
          </p>
       </li>
-      <li class='list'>
-        <%= image_tag "https://1.bp.blogspot.com/-5Ivf_XbpMGY/VYJrrYShorI/AAAAAAAAuiI/OjRHAljzJ6A/s800/oishii1_boy.png", class:"list-pict" %>
-        <h3 class='feature-list-text'>
-          右下の『食べて記録』をクリック！
-        </h3>
-        <p class='feature-list-description'>
-          実際に、かかった費用と調べたカロリーを撮った写真と共に入力！
-        </p>
-      </li>
     </ul>
   </div>
 
   <div class='feature-contents'>
     <ul class='feature-lists'>
       <li class='list'>
-        <%= image_tag "9e2e4adcffa79c4df161f62e18b1f108_t.jpeg", class:"list-pict" %>
+        <%= image_tag "https://1.bp.blogspot.com/-5Ivf_XbpMGY/VYJrrYShorI/AAAAAAAAuiI/OjRHAljzJ6A/s800/oishii1_boy.png", class:"list-pict" %>
         <h3 class='feature-list-text'>
-          マイページから記録が見れるよ！
+          右下の『食べて記録』をクリック！
         </h3>
         <p class='feature-list-description'>
-        計算できるようにしたいからあなたの情報を教えてね
+         実際に、かかった費用と調べたカロリーを撮った写真と共に入力！
         </p>
+      </li>
+      <li class='list'>
+        <%= image_tag "9e2e4adcffa79c4df161f62e18b1f108_t.jpeg", class:"list-pict" %>
+        <h3 class='feature-list-text'>
+         一週間チャレンジから現在の記録が見れるよ！
+        </h3>
+        <p class='feature-list-description'>
+          一週間なら計画が立てやすい！
+         </p>
       </li>
       <li class='list'>
         <%= image_tag "ダウンロード.png", class:"list-pict" %>
         <h3 class='feature-list-text'>
-         kcalは間違えてもみんながコメントで教えてくれるよ！
+          kcalは間違えても大丈夫！コメントでみんなが教えてくれるよ！
         </h3>
         <p class='feature-list-description'>
-          食品のkcalも知ることができる！
-         </p>
-      </li>
-      <li class='list'>
-        <%= image_tag "ダウンロード (2).jpeg", class:"list-pict" %>
-        <h3 class='feature-list-text'>
-          このアプリを使用すれば
-        </h3>
-        <p class='feature-list-description'>
-         摂取kcal,食費,さらには食材のkcalの知識がつくよ！一生物の知識ですね <br>
-         1ヶ月後が楽しみですね
+         摂取kcal,食費,さらには食材のkcalの知識がつくよ！一生物の知識がつきます
         </p>
       </li>
     </ul>
@@ -153,7 +152,7 @@
   <%# /FURIMAの特徴 %>
 
   <div class='item-contents'>
-    <h2 class='title'>今日みんな食べている一覧</h2>
+    <h2 class='title'>共有情報</h2>
     <ul class='item-lists'>
 
       <li class='list'>
@@ -178,7 +177,7 @@
         <% end %>
       </li>
     </ul>
-    <h2 class='title'>あなたも食べたものの情報を共有してあげよう</h2>
+    <h2 class='title'>あなたも食べたものを共有しよう！</h2>
     <h2 class='title'>あなたの情報が誰かの役に必ずたつ</h2>
     <%= form_with(url: search_foods_path, local: true, method: :get, class: "search-form") do |form| %>
       <%= form.text_field :keyword, placeholder: "今日食べる物！", class: "search-input" %>

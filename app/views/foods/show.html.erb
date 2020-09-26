@@ -13,16 +13,11 @@
       <span class="item-price">
          ¥<%= @food.price %>
       </span>
-      <span class="item-postage">
-        (税込) 送料込み
-      </span>
     </div>
 
   
     <% if user_signed_in? && @food.user == current_user %>
-      <%= link_to"#{@food.product}の編集", edit_food_path(@food.id), method: :get, class: "item-red-btn" %>
-      <p class='or-text'>or</p>
-      <%= link_to '削除', food_path(@food.id) , method: :delete, class:'item-destroy' %>
+      <%= link_to"#{@food.product}の情報を正しくする", edit_food_path(@food.id), method: :get, class: "item-red-btn" %>
     <% elsif user_signed_in? %>
       <%= link_to "#{@food.product}を体に取り込む", new_food_path, class:"item-red-btn"%>
     <% else %>
@@ -46,14 +41,6 @@
           <th class="detail-item">食材費</th>
           <td class="detail-value"><%= @food.price %>円</td>
         </tr>
-        <tr>
-          <th class="detail-item">材料</th>
-          <td class="detail-value"><%= @food.ingredient %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">作りかた</th>
-          <td class="explanation-value"><%= @food.explanation %></td>
-        </tr>
       </tbody>
     </table>
     <div class="option">
@@ -69,12 +56,12 @@
   </div>
   <% if user_signed_in? %>
     <div class='purchase-btn'>
-      <span><%= link_to "この食品を追加", new_food_path, class: 'purchase-btn-text' %></span>
+      <span><%= link_to "食品を記録", new_food_path, class: 'purchase-btn-text' %></span>
       <%= image_tag 'https://1.bp.blogspot.com/-5Ivf_XbpMGY/VYJrrYShorI/AAAAAAAAuiI/OjRHAljzJ6A/s800/oishii1_boy.png' , size: '185x70' ,class: "purchase-btn-icon" %>
     </div>
   <% else %>
     <div class='purchase-btn'>
-      <span><%= link_to "この食品を追加", user_session_path, class: 'purchase-btn-text' %></span>
+      <span><%= link_to "食品を記録", user_session_path, class: 'purchase-btn-text' %></span>
       <%= image_tag 'https://1.bp.blogspot.com/-5Ivf_XbpMGY/VYJrrYShorI/AAAAAAAAuiI/OjRHAljzJ6A/s800/oishii1_boy.png' , size: '185x70' ,class: "purchase-btn-icon" %>
     </div>
   <% end %>

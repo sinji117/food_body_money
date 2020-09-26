@@ -1,5 +1,4 @@
-<%# CSS・・・assets/stylesheets/shared/header.css %>
-<header class='top-page-header'>
+
   <div class='search-bar-contents'>
     <%= link_to image_tag("unnamed.png", class:"furima-icon"), "/" %>
     <%= form_with(url: search_foods_path, local: true, method: :get, class: "search-form") do |form| %>
@@ -24,4 +23,22 @@
         </div>
       <% end %>
   </div>
-</header>
+<h2 class='service-title'>
+  ⭐️ここでは食べ物記録が見れます⭐️
+  クリックすれば詳細情報を見れるよ
+</h2>
+<% money = current_user.money * 7 %>
+<% metabolism = current_user.metabolism * 7 %>
+<%= month_calendar events: @food do |date, food| %>
+  <%= date %> <br>
+  <% sum = 0 %>
+  <% price = 0 %>
+  <% food.each do |f| %>
+  <div>
+    ・<%= link_to f.product, f %> <br>
+    <% sum += f.calorie  %>
+    <% price += f.price  %>
+    </div>
+  <% end %>
+<% end %>
+ 

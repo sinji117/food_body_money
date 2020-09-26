@@ -1,21 +1,68 @@
-<%= render "shared/header" %>
-基礎代謝 <%= current_user.metabolism %>kcal<br>
-月の基礎代謝 <%= current_user.metabolism * 30 %>kcal<br>
-月の予定額 <%= current_user.money %>円<br>
-<% metabolism = current_user.metabolism * 30 %>
+
+  <div class='search-bar-contents'>
+    <%= link_to image_tag("unnamed.png", class:"furima-icon"), "/" %>
+    <%= form_with(url: search_foods_path, local: true, method: :get, class: "search-form") do |form| %>
+      <%= form.text_field :keyword, placeholder: "今日食べる物！", class: "search-input" %>
+      <%= form.submit "検索", class: "search-btn" %>
+    <% end %>
+  </div>
+  <div class='nav'>
+    <ul class='lists-left'>
+      <li><%= link_to '一週間チャレンジ！', users_path, method: :get, class: "category-list" %></li>
+      <li><%= link_to '先月の記録', user_path(current_user.id), method: :get, class: "category-list" %></li>
+    </ul>
+      <% if user_signed_in? %>
+        <div class='lists-right'>
+          <li><%= link_to "ようこそ#{current_user.nickname}さん", root_path, class: "user-nickname" %></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %></li>
+        </div>
+      <% else %>
+        <div class='lists-right'>
+          <li><%= link_to "ログイン", new_user_session_path, class: "login" %></li>
+          <li><%= link_to "新規登録", new_user_registration_path, class: "sign-up" %></li>
+        </div>
+      <% end %>
+  </div>
+    <h2 class='service-title'>
+      ⭐️ここではチャレンジ結果が見れます⭐️
+    </h2>
+    <p class='service-explain'>
+      1日単位ではなく1週間単位で考えましょう
+    </p>
+    <p class='service-explain'>
+      科学的根拠で1週間が一番管理しやすい<br>
+      1週間の記録であなたは軽い体と太った財布を手に入れるでしょう
+    </p>
+    <h2 class='service-title'>
+      基礎代謝 <%= current_user.metabolism %>kcal<br>
+      週の基礎代謝 <%= current_user.metabolism * 7 %>kcal<br>
+      週の予定額 <%= current_user.money * 7 %>円<br>
+    </h2>  
+<% money = current_user.money * 7 %>
+<% metabolism = current_user.metabolism * 7 %>
 <%= week_calendar events: @food do |date, food| %>
   <%= date %> <br>
   <% sum = 0 %>
   <% price = 0 %>
+  ・<%= link_to "食べたもの一覧", edit_user_path(current_user) %> <br>
   <% food.each do |f| %>
   <div>
-    ・<%= link_to f.product, f %> <br>
     <% sum += f.calorie  %>
     <% price += f.price  %>
     </div>
   <% end %>
-  ・<%= sum %>kcal摂取<br>
-  ・<%= price %>円使いました<br>
-  ・今月残り<%= current_user.money -= price %>円<br>
-  ・今月残り<%= metabolism -= sum %>kcal<br>
+  ・日に<%= sum %>kcal摂取<br>
+  ・日に<%= price %>円使いました<br>
+  ・週残り<%= metabolism -= sum %>kcal<br>
+  ・週残り<%= money -= price %>円<br>
+  <% if current_user.metabolism - sum > 0 %>
+  ・チャレンジ結果<%= current_user.metabolism - sum %>kcal勝ったよ！<br>
+  <% else %>
+  ・チャレンジ結果<%= current_user.metabolism - sum %>kcal負けだよ<br>
+  <% end %>
+  <% if  current_user.money - price > 0 %>
+  <%= current_user.money - price %>円勝ったよ！<br>
+  <% else %>
+  <%= current_user.money - price %>円負けだよ<br>
+  <% end %>
 <% end %>
