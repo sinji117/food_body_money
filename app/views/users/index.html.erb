@@ -1,29 +1,8 @@
-
-  <div class='search-bar-contents'>
-    <%= link_to image_tag("unnamed.png", class:"furima-icon"), "/" %>
-    <%= form_with(url: search_foods_path, local: true, method: :get, class: "search-form") do |form| %>
-      <%= form.text_field :keyword, placeholder: "今日食べる物！", class: "search-input" %>
-      <%= form.submit "検索", class: "search-btn" %>
-    <% end %>
-  </div>
-  <div class='nav'>
-    <ul class='lists-left'>
-    </ul>
-      <% if user_signed_in? %>
-        <div class='lists-right'>
-          <li><%= link_to "ようこそ#{current_user.nickname}さん", root_path, class: "user-nickname" %></li>
-          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %></li>
-        </div>
-      <% else %>
-        <div class='lists-right'>
-          <li><%= link_to "ログイン", new_user_session_path, class: "login" %></li>
-          <li><%= link_to "新規登録", new_user_registration_path, class: "sign-up" %></li>
-        </div>
-      <% end %>
-  </div>
     <h2 class='service-title'>
       ⭐️ここでは1週間のチャレンジ結果が見れます⭐️
     </h2>
+  
+      <%= link_to "トップページへ", root_path %>
 
     <% money = current_user.money * 7 %>
 <% metabolism = current_user.metabolism * 7 %>
@@ -41,8 +20,8 @@
   
 <% end %>
 <h2 class='service-title'>
-  週の基礎代謝 <%= current_user.metabolism * 7 %>kcal　週残り<%= metabolism -= sum %>kcal食べれます<br>
-  週の予定額 <%= current_user.money * 7 %>円　　週残り<%= money -= price %>円使えます<br>
+  週残り<%= metabolism -= sum %>kcal食べれます<br>
+  週残り<%= money -= price %>円使えます<br>
 </h2>  
 
   

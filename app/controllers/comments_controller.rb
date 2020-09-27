@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
   def create
     Comment.create(comment_params)
-    redirect_to root_path
+    @food = Food.find(params[:food_id])
+    redirect_to food_path(@food.id)
   end
 
   private

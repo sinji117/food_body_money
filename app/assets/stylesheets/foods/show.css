@@ -127,25 +127,6 @@
   margin-right: 5px;
 }
 
-.report-btn {
-  border-radius: 40px;
-  width: 15vw;
-  min-width: 200px;
-
-  padding: 1vh 0;
-  color: black;
-  border: 2px solid #2d2d2d;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.report-flag-icon {
-  margin-right: 5px;
-}
-
-
-/* /商品の概要 */
 
 .comment-box {
   width: 40vw;
@@ -190,12 +171,6 @@
   margin: 10px 5px 0 0;
 }
 
-.links {
-  display: flex;
-  justify-content: space-between;
-  width: 50vw;
-
-}
 
 .change-item-btn {
   font-size: 30px;

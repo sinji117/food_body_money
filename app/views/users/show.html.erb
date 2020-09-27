@@ -1,10 +1,4 @@
 
-  <div class='search-bar-contents'>
-    <%= link_to image_tag("unnamed.png", class:"furima-icon"), "/" %>
-    <%= form_with(url: search_foods_path, local: true, method: :get, class: "search-form") do |form| %>
-      <%= form.text_field :keyword, placeholder: "今日食べる物！", class: "search-input" %>
-      <%= form.submit "検索", class: "search-btn" %>
-    <% end %>
   </div>
   <div class='nav'>
     <ul class='lists-left'>
